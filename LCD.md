@@ -12,7 +12,7 @@ entity lcd is
         lcd_data  : out STD_LOGIC_VECTOR(7 downto 0);
         rst       : in  STD_LOGIC
     );
-end lcddd;
+end lcd;
 
 architecture Behavioral of lcd is
 
@@ -159,7 +159,6 @@ begin
 
             end case;
         end if;
-
     end process;
 
 end Behavioral;
