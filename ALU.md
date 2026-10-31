@@ -4,10 +4,12 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
-Port ( a : in STD_LOGIC_VECTOR (3 downto 0);
-        b : in STD_LOGIC_VECTOR (3 downto 0);
-        sel : in STD_LOGIC_VECTOR (2 downto 0);
-        y : out STD_LOGIC_VECTOR (3 downto 0));
+
+entity ALUBATCH is
+        Port ( a : in STD_LOGIC_VECTOR (3 downto 0);
+               b : in STD_LOGIC_VECTOR (3 downto 0);
+               sel : in STD_LOGIC_VECTOR (2 downto 0);
+               y : out STD_LOGIC_VECTOR (3 downto 0));
 end ALUBATCH;
 
 architecture Behavioral of ALUBATCH is
