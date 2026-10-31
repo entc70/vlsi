@@ -30,9 +30,9 @@ begin
                     TEMP <= datain;
                 when "00" =>                           -- hold
                     null;
-                when "01" =>                           -- left shift
+                when "10" =>                           -- left shift
                     TEMP <= TEMP(2 downto 0) & sl_in;
-                when "10" =>                           -- right shift
+                when "01" =>                           -- right shift
                     TEMP <= sr_in & TEMP(3 downto 1);
                 when others =>
                     null;
