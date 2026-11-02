@@ -5,9 +5,6 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
 
-----------------------------------------------------------------------------------
--- ENTITY DECLARATION
-----------------------------------------------------------------------------------
 ENTITY keypad IS
     PORT (
         clk      : IN  STD_LOGIC;                             -- System clock
@@ -19,35 +16,24 @@ ENTITY keypad IS
     );
 END keypad;
 
-----------------------------------------------------------------------------------
--- ARCHITECTURE DEFINITION
-----------------------------------------------------------------------------------
 ARCHITECTURE Behavioral OF keypad IS
 
-    -- State machine signal. The state determines which row to scan.
     SIGNAL state : INTEGER RANGE 0 TO 3 := 0;
 
 BEGIN
 
-    -- This process contains the main logic for the keypad scanner.
-    -- It is sensitive to the clock and reset signals.
-    PROCESS (clk, rst)
+        PROCESS (clk, rst)
     BEGIN
-        -- Asynchronous reset logic
+    
         IF rst = '1' THEN
             Row       <= "1111";          -- Disable all rows (set high)
             Key_code  <= (OTHERS => '0'); -- Reset key code
             Key_valid <= '0';             -- Invalidate key
             state     <= 0;               -- Reset to the first state
 
-        -- Logic executes on the rising edge of the clock
+    
         ELSIF rising_edge(clk) THEN
 
-            -- NOTE: Based on the provided code, 'key_valid' is set to '1' on a keypress
-            -- but is not automatically reset. An external module would need to
-            -- read the key and then handle the signal.
-
-            -- State machine for scanning rows
             CASE state IS
 
                 -- STATE 0: Scan Row 0
